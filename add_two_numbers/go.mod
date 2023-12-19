@@ -1,4 +1,4 @@
-module github.com/foroozf001/leetcode/maximum_product_difference
+module github.com/foroozf001/leetcode/add_two_numbers
 
 go 1.21
 
