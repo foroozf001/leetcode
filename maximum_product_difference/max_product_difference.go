@@ -3,7 +3,7 @@ package main
 func main() {}
 
 // O(n)
-func MaxProductDifference(nums []int) int {
+func maxProductDifference(nums []int) int {
 	w, x, y, z := 0, 0, 10001, 10001
 
 	for i := 0; i < len(nums); i++ {

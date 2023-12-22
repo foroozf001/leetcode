@@ -1,8 +1,6 @@
 package main
 
-import (
 // "reflect"
-)
 
 func main() {}
 
@@ -22,7 +20,7 @@ func (l *ListNode) Print() {
 	}
 }
 
-func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	if l1 == nil && l2 == nil {
 		return nil
 	} else if l1 != nil && l2 == nil {
@@ -35,10 +33,10 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	carry := sum / 10
 	sum %= 10
 
-	next := AddTwoNumbers(l1.Next, l2.Next)
+	next := addTwoNumbers(l1.Next, l2.Next)
 
 	if carry > 0 {
-		next = AddTwoNumbers(&ListNode{carry, nil}, next)
+		next = addTwoNumbers(&ListNode{carry, nil}, next)
 	}
 
 	return &ListNode{sum, next}

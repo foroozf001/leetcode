@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test(t *testing.T) {
-	assert.Equal(t, false, IsMatch("aa", "a"))
-	assert.Equal(t, true, IsMatch("aa", "a*"))
-	assert.Equal(t, true, IsMatch("ab", ".*"))
+	assert.Equal(t, false, isMatch("aa", "a"))
+	assert.Equal(t, true, isMatch("aa", "a*"))
+	assert.Equal(t, true, isMatch("ab", ".*"))
 }

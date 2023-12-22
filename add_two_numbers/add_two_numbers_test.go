@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func Test(t *testing.T) {
@@ -18,13 +19,13 @@ func Test(t *testing.T) {
 	l3b := &ListNode{0, l3c}
 	l3a := &ListNode{7, l3b}
 
-	assert.Equal(t, l3a, AddTwoNumbers(l1a, l2a))
+	assert.Equal(t, l3a, addTwoNumbers(l1a, l2a))
 
 	l1a = &ListNode{0, nil}
 	l2a = &ListNode{0, nil}
 	l3a = &ListNode{0, nil}
 
-	assert.Equal(t, l3a, AddTwoNumbers(l1a, l2a))
+	assert.Equal(t, l3a, addTwoNumbers(l1a, l2a))
 
 	l1g := &ListNode{9, nil}
 	l1f := &ListNode{9, l1g}
@@ -48,5 +49,5 @@ func Test(t *testing.T) {
 	l3b = &ListNode{9, l3c}
 	l3a = &ListNode{8, l3b}
 
-	assert.Equal(t, l3a, AddTwoNumbers(l1a, l2a))
+	assert.Equal(t, l3a, addTwoNumbers(l1a, l2a))
 }
