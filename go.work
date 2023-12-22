@@ -4,4 +4,5 @@ use (
 	./maximum_product_difference
 	./add_two_numbers
 	./regular_expression_matching
+	./merge_two_sorted_lists
 )
