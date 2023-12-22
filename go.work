@@ -6,4 +6,5 @@ use (
 	./regular_expression_matching
 	./merge_two_sorted_lists
 	./swap_nodes_in_pairs
+	./reverse_nodes_in_kgroup
 )
