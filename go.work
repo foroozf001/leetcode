@@ -5,4 +5,5 @@ use (
 	./add_two_numbers
 	./regular_expression_matching
 	./merge_two_sorted_lists
+	./swap_nodes_in_pairs
 )
