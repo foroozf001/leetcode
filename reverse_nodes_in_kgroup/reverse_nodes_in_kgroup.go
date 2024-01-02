@@ -1,6 +1,8 @@
 package main
 
-func main() {}
+func main() {
+
+}
 
 type ListNode struct {
 	Val  int
@@ -14,47 +16,62 @@ func (l *ListNode) Print() {
 	}
 }
 
+func length(l *ListNode) int {
+	if l == nil {
+		return 0
+	}
+	length := 1
+	for l.Next != nil {
+		l = l.Next
+		length++
+	}
+	return length
+}
+
 // Iterative
-func (head *ListNode) reverseKListIter(k int) *ListNode {
-	var prev, orig, curr *ListNode = nil, head, head
-	for curr != nil && k > 0 {
+func reverseKGroupIter(head *ListNode, k int) *ListNode {
+	i := k
+	if length(head) < i {
+		return head
+	}
+	var prev, curr *ListNode = nil, head
+	for curr != nil && i > 0 {
 		next := curr.Next
 		curr.Next = prev
 		prev = curr
 		curr = next
-		k--
+		i--
 	}
-	orig.Next = curr
+	head.Next = reverseKGroupIter(curr, k)
 	return prev
 }
 
-func reverseKGroupIter(head *ListNode, k int) *ListNode {
-	return head.reverseKListIter(k)
-}
-
 // Recursive
-func (head *ListNode) reverseKGroupRecur(k int) *ListNode {
+func reverseKListRecur(head *ListNode, k int) *ListNode {
 	if head == nil || head.Next == nil || k == 1 {
 		return head
 	}
-	r := head.Next.reverseKGroupRecur(k - 1)
+	reverse := reverseKListRecur(head.Next, k-1)
 	head.Next.Next = head
 	head.Next = nil
-	return r
+	return reverse
 }
 
-func (l *ListNode) getNodeRecur(n int) *ListNode {
+func getNode(l *ListNode, n int) *ListNode {
 	if l == nil {
 		return nil
 	} else if n > 1 {
-		return l.Next.getNodeRecur(n - 1)
+		return getNode(l.Next, n-1)
 	}
 	return l
 }
 
 func reverseKGroupRecur(head *ListNode, k int) *ListNode {
-	var orig, last *ListNode = head, head.getNodeRecur(k + 1)
-	rev := head.reverseKGroupRecur(k)
-	orig.Next = last
-	return rev
+	if length(head) < k {
+		return head
+	}
+	var next *ListNode = getNode(head, k+1)
+	reverse := reverseKListRecur(head, k)
+	head.Next = reverseKGroupRecur(next, k)
+	return reverse
 }
