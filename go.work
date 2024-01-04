@@ -8,4 +8,5 @@ use (
 	./swap_nodes_in_pairs
 	./reverse_nodes_in_kgroup
 	./wildcard_matching
+	./pow_xn
 )
